@@ -87,7 +87,7 @@ The script started installing packages:
 The installation finished successfully. The script printed out:
 - **Dashboard URL:** `https://192.168.229.128`
 - **Username:** `admin`
-- **Password:** [randomly generated which copied and saved immediately]
+- **Password:** [randomly generated which i copied and saved immediately]
 
 ---
 
