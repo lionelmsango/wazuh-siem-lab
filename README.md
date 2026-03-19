@@ -56,5 +56,42 @@ First, I needed a solid foundation for the SIEM. Wazuh recommends at least 4GB R
 ![VM Hardware Configuration](https://github.com/lionelmsango/wazuh-siem-lab/blob/9dbc42e0e62860636f4a1132d9bcceda9adec34c/screenshots/09-vm-hardware.jpg)
 *Screenshot 1: VM hardware settings*
 
+---
+
+### **Installing Wazuh**
+
+Wazuh offers an "all-in-one" installation script that sets up the Manager, Indexer, and Dashboard in one go. For a home lab, this is perfect.
+
+I downloaded the installation script:
+
+```bash
+curl -sO https://packages.wazuh.com/4.9/wazuh-install.sh
+chmod +x wazuh-install.sh
+```
+
+Then ran it:
+
+```bash
+sudo bash wazuh-install.sh -a
+```
+
+![Wazuh Installation in Progress](https://github.com/lionelmsango/wazuh-siem-lab/blob/7a9e08703d30aa1fcfd2a558172e75e00f0235ed/screenshots/10-wazuh-installation.jpg)
+*Screenshot 2: Wazuh installation assistant running - installing dependencies*
+
+The script started installing packages:
+
+1. **Wazuh Indexer** (based on OpenSearch/Elasticsearch) - for storing logs
+2. **Wazuh Manager** - the brain that analyzes security events
+3. **Wazuh Dashboard** - the web interface for viewing alerts
+
+The installation finished successfully. The script printed out:
+- **Dashboard URL:** `https://192.168.229.128`
+- **Username:** `admin`
+- **Password:** [randomly generated which copied and saved immediately]
+
+---
+
+
+
 
 
