@@ -294,8 +294,6 @@ Restart-Service WazuhSvc
 
 ## 📊 Part 5: Seeing It All Come Together
 
-### **The Moment of Truth**
-
 I went back to the Wazuh Dashboard and clicked on **"Discover"** (the log search interface). I filtered for:
 
 ```
