@@ -91,6 +91,22 @@ The installation finished successfully. The script printed out:
 
 ---
 
+### **Verifying Wazuh Manager is Running**
+
+Before trying the web interface, I wanted to make sure the Wazuh Manager service was actually running.
+
+```bash
+sudo systemctl status wazuh-manager
+```
+
+![Wazuh Manager Service Status](https://github.com/lionelmsango/wazuh-siem-lab/blob/624f7d88fb60b4e2cad4add519e14b320ecf2eb6/screenshots/12-wazuh-manager-status.jpg)
+*Screenshot 4: Wazuh Manager service showing as active (running)*
+
+**Status:** `active (running)` ✅
+
+Perfect. The SIEM server was up and operational. Now to access the dashboard.
+
+---
 
 
 
