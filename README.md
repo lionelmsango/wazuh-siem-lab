@@ -100,7 +100,7 @@ sudo systemctl status wazuh-manager
 ```
 
 ![Wazuh Manager Service Status](https://github.com/lionelmsango/wazuh-siem-lab/blob/624f7d88fb60b4e2cad4add519e14b320ecf2eb6/screenshots/12-wazuh-manager-status.jpg)
-*Screenshot 4: Wazuh Manager service showing as active (running)*
+*Screenshot 3: Wazuh Manager service showing as active (running)*
 
 **Status:** `active (running)` ✅
 
@@ -119,12 +119,12 @@ https://192.168.229.128
 The browser warned about the self-signed certificate (expected for a home lab). I clicked "Accept Risk and Continue."
 
 ![Wazuh Login Page](https://github.com/lionelmsango/wazuh-siem-lab/blob/ec51e3048eb82518e15c063e6f4299f032076586/screenshots/01-wazuh-login.jpg)
-*Screenshot 5: Wazuh dashboard login page*
+*Screenshot 4: Wazuh dashboard login page*
 
 The login was succesful and i now had access to the wazuh dashboard.
 
 ![Wazuh Dashboard Homepage](https://github.com/lionelmsango/wazuh-siem-lab/blob/ec51e3048eb82518e15c063e6f4299f032076586/screenshots/02-dashboard-overview.jpg)
-*Screenshot 6: Wazuh dashboard showing 88 alerts (14 medium severity, 74 low severity)*
+*Screenshot 5: Wazuh dashboard showing 88 alerts (14 medium severity, 74 low severity)*
 
 The dashboard loaded, showing:
 - **Agents Summary:** No agents yet (expected - I haven't connected Windows yet)
@@ -134,6 +134,50 @@ The dashboard loaded, showing:
 I had a working SIEM dashboard. Now I needed something to monitor.
 
 ---
+
+## 💻 Part 3: Setting Up the Windows 11 Endpoint
+I created a second VM on VMware with windows OS. After installing Windows 11 and going through the setup, I had a fresh Windows desktop ready to be monitored.
+
+---
+
+### **Installing the Wazuh Agent**
+
+The Wazuh agent is what sends logs from Windows to the SIEM server. I downloaded it from the Wazuh packages repository:
+
+**PowerShell (as Administrator):**
+
+```powershell
+Invoke-WebRequest -Uri "https://packages.wazuh.com/4.x/windows/wazuh-agent-4.9.0-1.msi" -OutFile "$env:USERPROFILE\Downloads\wazuh-agent.msi"
+```
+
+Then installed it with the server IP:
+
+```powershell
+cd $env:USERPROFILE\Downloads
+msiexec.exe /i wazuh-agent.msi /q WAZUH_MANAGER="192.168.229.128" WAZUH_AGENT_NAME="WIN11-CLIENT"
+```
+
+Started the service:
+
+```powershell
+NET START WazuhSvc
+```
+
+**Output:**
+```
+The Wazuh service is starting.
+The Wazuh service was started successfully.
+```
+
+![Wazuh Agent Started Successfully](https://github.com/lionelmsango/wazuh-siem-lab/blob/a17b39adf4637354e0a7277629a8616356fefb8f/screenshots/12a-wazuh-manager-status.jpg)
+*Screenshot 6: PowerShell showing Wazuh agent intallation*
+
+The agent was running. But would it connect to the server? 
+I Waited about 30 seconds, then refreshed the wazuh dashboard and clicked on **"Agents"** in the left sidebar.
+**Status:** **Active** ✅ (green dot)
+
+![Windows 11 Agent Active in Dashboard](https://github.com/lionelmsango/wazuh-siem-lab/blob/a17b39adf4637354e0a7277629a8616356fefb8f/screenshots/13-agent-active.jpg)
+*Screenshot 7: Wazuh dashboard showing WIN11-CLIENT as "active" with green status indicator*
 
 
 
