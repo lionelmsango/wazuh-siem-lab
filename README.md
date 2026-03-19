@@ -108,6 +108,33 @@ Perfect. The SIEM server was up and operational. Now to access the dashboard.
 
 ---
 
+### **Accessing the Wazuh Dashboard**
+
+I opened Firefox on the Ubuntu machine and navigated to the DHCP-assigned IP address for the ubuntu server:
+
+```
+https://192.168.229.128
+```
+
+The browser warned about the self-signed certificate (expected for a home lab). I clicked "Accept Risk and Continue."
+
+![Wazuh Login Page](https://github.com/lionelmsango/wazuh-siem-lab/blob/ec51e3048eb82518e15c063e6f4299f032076586/screenshots/01-wazuh-login.jpg)
+*Screenshot 5: Wazuh dashboard login page*
+
+The login was succesful and i now had access to the wazuh dashboard.
+
+![Wazuh Dashboard Homepage](https://github.com/lionelmsango/wazuh-siem-lab/blob/ec51e3048eb82518e15c063e6f4299f032076586/screenshots/02-dashboard-overview.jpg)
+*Screenshot 6: Wazuh dashboard showing 88 alerts (14 medium severity, 74 low severity)*
+
+The dashboard loaded, showing:
+- **Agents Summary:** No agents yet (expected - I haven't connected Windows yet)
+- **Last 24 Hours Alerts:** Already showing some alerts from the server itself
+- Various security modules: Configuration Assessment, Malware Detection, Threat Hunting
+
+I had a working SIEM dashboard. Now I needed something to monitor.
+
+---
+
 
 
 
