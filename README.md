@@ -1,7 +1,11 @@
-# 🛡️ Building My First SIEM Lab: A Journey into Security Monitoring
-
+# 🛡️ SIEM Lab with Wazuh: A Journey into Security Monitoring
 
 ---
+## Kurzbeschreibung
+
+Dieses Projekt dokumentiert den Aufbau einer vollständigen SIEM-Infrastruktur auf Basis von Wazuh. Ich habe Wazuh (Manager, Indexer, Dashboard) auf einem Ubuntu-Server 24.04 installiert, einen Wazuh-Agenten auf einem Windows-11-Endpunkt deployt und Sysmon für erweitertes Prozess- und Netzwerkmonitoring konfiguriert. Die Wazuh-Agent-Konfiguration wurde angepasst, um Sysmon-Ereignisse an den zentralen Server weiterzuleiten. Das Ergebnis ist eine funktionierende SIEM-Umgebung, die Echtzeit-Sicherheitsereignisse von Windows-Endpunkten erfasst und im Dashboard visualisiert.
+
+## Overview
 
 This project demonstrates how I went from reading about security monitoring to actually running a working SIEM that collects real security events from a Windows endpoint. It took a lot of troubleshooting, and more coffee than I'd like to admit. But by the end, I had infrastructure that does exactly what enterprise SOC teams use to detect threats.
 
